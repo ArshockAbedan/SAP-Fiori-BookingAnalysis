@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zfe_booking_analytics_000010" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="AgencyType" sap:label="Agency View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AgencyID"/>
+                </Key>
+                <Property Name="AgencyID" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:text="Name" sap:label="Agency ID" sap:quickinfo="Flight Reference Scenario: Agency ID"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="80" sap:label="Agency Name" sap:quickinfo="Flight Reference Scenario: Agency Name"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:label="Street" sap:quickinfo="Flight Reference Scenario: Street"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code" sap:quickinfo="Flight Reference Scenario: Postal Code"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City" sap:quickinfo="Flight Reference Scenario: City"/>
+                <Property Name="CountryCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key" sap:value-list="standard"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Phone No." sap:quickinfo="Flight Reference Scenario: Phone Number"/>
+                <Property Name="EMailAddress" Type="Edm.String" MaxLength="256" sap:label="E-Mail Address" sap:quickinfo="Flight Reference Scenario: Email Address"/>
+                <Property Name="WebAddress" Type="Edm.String" MaxLength="256" sap:label="Web Address" sap:quickinfo="Flight Reference Scenario: Web Address"/>
+            </EntityType>
+            <EntityType Name="xDMOxI_AirportType" sap:label="Airport View - CDS Data Model" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirportID"/>
+                </Key>
+                <Property Name="AirportID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Name" sap:label="Airport ID" sap:quickinfo="Flight Reference Scenario: Airport ID"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="40" sap:label="Airport Name" sap:quickinfo="Flight Reference Scenario: Airport Name"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City" sap:quickinfo="Flight Reference Scenario: City"/>
+                <Property Name="CountryCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key" sap:value-list="standard"/>
+            </EntityType>
+            <EntityType Name="CustomerType" sap:label="Customer View - CDS Data Model" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerID"/>
+                </Key>
+                <Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:text="LastName" sap:label="Customer ID" sap:quickinfo="Flight Reference Scenario: Customer ID"/>
+                <Property Name="FirstName" Type="Edm.String" MaxLength="40" sap:label="First Name" sap:quickinfo="Flight Reference Scenario: First Name"/>
+                <Property Name="LastName" Type="Edm.String" MaxLength="40" sap:label="Last Name" sap:quickinfo="Flight Reference Scenario: Last Name"/>
+                <Property Name="Title" Type="Edm.String" MaxLength="10" sap:label="Title" sap:quickinfo="Flight Reference Scenario: Title"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:label="Street" sap:quickinfo="Flight Reference Scenario: Street"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code" sap:quickinfo="Flight Reference Scenario: Postal Code"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City" sap:quickinfo="Flight Reference Scenario: City"/>
+                <Property Name="CountryCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key" sap:value-list="standard"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Phone No." sap:quickinfo="Flight Reference Scenario: Phone Number"/>
+                <Property Name="EMailAddress" Type="Edm.String" MaxLength="256" sap:label="E-Mail Address" sap:quickinfo="Flight Reference Scenario: Email Address"/>
+            </EntityType>
+            <EntityType Name="I_CountryType" sap:label="Country" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Country_Text" sap:label="Country/Region Key"/>
+                <Property Name="Country_Text" Type="Edm.String" MaxLength="50" sap:label="Country/Region Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code 3 Char" sap:quickinfo="ISO Country/Region Code 3 Characters"/>
+                <Property Name="CountryThreeDigitISOCode" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="ISO Code Num. 3" sap:quickinfo="ISO Country/Region Code Numeric 3-Characters"/>
+                <Property Name="CountryISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="ISO code" sap:quickinfo="ISO Code of the Country/Region"/>
+            </EntityType>
+            <EntityType Name="CurrencyType" sap:label="Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Currency_Text" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="Currency_Text" Type="Edm.String" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Decimals" Type="Edm.Byte" sap:label="Decimal Places" sap:quickinfo="Number of decimal places"/>
+                <Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code" sap:quickinfo="ISO Currency Code"/>
+                <Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternative Key"/>
+                <Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primary" sap:quickinfo="Primary SAP Currency Code for ISO Code"/>
+            </EntityType>
+            <EntityType Name="BookingType" sap:semantics="aggregate" sap:label="Projection View for Booking Analysis" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BookingUUID" Type="Edm.Guid" sap:aggregation-role="dimension" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                <Property Name="TravelUUID" Type="Edm.Guid" sap:aggregation-role="dimension" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                <Property Name="BookingID" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Booking Number" sap:quickinfo="Flight Reference Scenario: Booking ID"/>
+                <Property Name="BookingDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Booking Date" sap:quickinfo="Flight Reference Scenario: Booking Date"/>
+                <Property Name="BookingDateYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:label="Booking Date (Year)"/>
+                <Property Name="CustomerID" Type="Edm.String" MaxLength="6" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="CustomerName" sap:label="Customer" sap:quickinfo="Flight Reference Scenario: Customer ID"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="40" sap:label="Last Name" sap:quickinfo="Flight Reference Scenario: Last Name"/>
+                <Property Name="CarrierID" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="CarrierName" sap:label="Airline" sap:quickinfo="Flight Reference Scenario: Carrier ID"/>
+                <Property Name="CarrierName" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:quickinfo="Flight Reference Scenario: Carrier Name"/>
+                <Property Name="ConnectionID" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Flight Number" sap:quickinfo="Flight Reference Scenario: Connection ID"/>
+                <Property Name="FlightDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Flight Date" sap:quickinfo="Flight Reference Scenario: Flight Date"/>
+                <Property Name="FlightPrice" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="CurrencyCode" sap:variable-scale="true" sap:label="Flight Price" sap:quickinfo="Flight Reference Scenario: Flight Price" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="Currency Code" sap:quickinfo="Flight Reference Scenario: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="AgencyID" Type="Edm.String" MaxLength="6" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="AgencyName" sap:label="Agency" sap:quickinfo="Flight Reference Scenario: Agency ID"/>
+                <Property Name="AgencyName" Type="Edm.String" MaxLength="80" sap:label="Agency Name" sap:quickinfo="Flight Reference Scenario: Agency Name"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:aggregation-role="dimension" sap:label="Time Stamp" sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"/>
+                <NavigationProperty Name="to_Carrier" Relationship="cds_zfe_booking_analytics_000010.assoc_239F22C172B928EC097EA741CB4037D6" FromRole="FromRole_assoc_239F22C172B928EC097EA741CB4037D6" ToRole="ToRole_assoc_239F22C172B928EC097EA741CB4037D6"/>
+                <NavigationProperty Name="to_Connection" Relationship="cds_zfe_booking_analytics_000010.assoc_3ADA06257639544A740B5A3B04FDE16D" FromRole="FromRole_assoc_3ADA06257639544A740B5A3B04FDE16D" ToRole="ToRole_assoc_3ADA06257639544A740B5A3B04FDE16D"/>
+                <NavigationProperty Name="to_Customer" Relationship="cds_zfe_booking_analytics_000010.assoc_0284693A34B9BF4BBD1A53349FA4FFD5" FromRole="FromRole_assoc_0284693A34B9BF4BBD1A53349FA4FFD5" ToRole="ToRole_assoc_0284693A34B9BF4BBD1A53349FA4FFD5"/>
+                <NavigationProperty Name="to_Travel" Relationship="cds_zfe_booking_analytics_000010.assoc_163F44BB46B316F4915A6EE189A2E8B1" FromRole="FromRole_assoc_163F44BB46B316F4915A6EE189A2E8B1" ToRole="ToRole_assoc_163F44BB46B316F4915A6EE189A2E8B1"/>
+            </EntityType>
+            <EntityType Name="AirlineType" sap:label="Carrier view entity" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirlineID"/>
+                </Key>
+                <Property Name="AirlineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Name" sap:label="Airline ID" sap:quickinfo="Flight Reference Scenario: Carrier ID"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:quickinfo="Flight Reference Scenario: Carrier Name"/>
+                <Property Name="AirlinePicURL" Type="Edm.String" MaxLength="256" sap:label="Airline Logo"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:quickinfo="Flight Reference Scenario: Currency Code" sap:semantics="currency-code"/>
+                <NavigationProperty Name="to_Currency" Relationship="cds_zfe_booking_analytics_000010.assoc_80E30C9264442D302002C2D9BAA5C7A6" FromRole="FromRole_assoc_80E30C9264442D302002C2D9BAA5C7A6" ToRole="ToRole_assoc_80E30C9264442D302002C2D9BAA5C7A6"/>
+            </EntityType>
+            <EntityType Name="ConnectionType" sap:label="Connection view entity" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirlineID"/>
+                    <PropertyRef Name="ConnectionID"/>
+                </Key>
+                <Property Name="AirlineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="AirlineID_Text" sap:label="Airline ID" sap:quickinfo="Flight Reference Scenario: Carrier ID" sap:value-list="standard"/>
+                <Property Name="AirlineID_Text" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConnectionID" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Flight Number" sap:quickinfo="Flight Reference Scenario: Connection ID"/>
+                <Property Name="DepartureAirport" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Departure Airport" sap:quickinfo="Flight Reference Scenario: From Airport" sap:value-list="standard"/>
+                <Property Name="DestinationAirport" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Destination Airport" sap:quickinfo="Flight Reference Scenario: To Airport" sap:value-list="standard"/>
+                <Property Name="DepartureTime" Type="Edm.Time" Precision="0" sap:label="Departure" sap:quickinfo="Flight Reference Scenario: Departure Time"/>
+                <Property Name="ArrivalTime" Type="Edm.Time" Precision="0" sap:label="Arrival" sap:quickinfo="Flight Reference Scenario: Arrival Time"/>
+                <Property Name="Distance" Type="Edm.Int32" sap:unit="DistanceUnit" sap:label="Flight Distance" sap:quickinfo="Flight Reference Scenario: Flight Distance"/>
+                <Property Name="DistanceUnit" Type="Edm.String" MaxLength="3" sap:label="Internal UoM" sap:quickinfo="Unit of Measurement" sap:semantics="unit-of-measure"/>
+                <NavigationProperty Name="to_Airline" Relationship="cds_zfe_booking_analytics_000010.assoc_9FB13578F60A348F1EFBC0FB3C174674" FromRole="FromRole_assoc_9FB13578F60A348F1EFBC0FB3C174674" ToRole="ToRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+            </EntityType>
+            <EntityType Name="FlightType" sap:label="Flight view entity" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirlineID"/>
+                    <PropertyRef Name="ConnectionID"/>
+                    <PropertyRef Name="FlightDate"/>
+                </Key>
+                <Property Name="AirlineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="AirlineID_Text" sap:label="Airline ID" sap:quickinfo="Flight Reference Scenario: Carrier ID" sap:value-list="standard"/>
+                <Property Name="AirlineID_Text" Type="Edm.String" MaxLength="40" sap:label="Airline Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConnectionID" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Flight Number" sap:quickinfo="Flight Reference Scenario: Connection ID" sap:value-list="standard"/>
+                <Property Name="FlightDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Flight Date" sap:quickinfo="Flight Reference Scenario: Flight Date"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:variable-scale="true" sap:label="Flight Price" sap:quickinfo="Flight Reference Scenario: Flight Price"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:quickinfo="Flight Reference Scenario: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="PlaneType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Plane Type" sap:quickinfo="Flight Reference Scenario: Plane Type ID"/>
+                <Property Name="MaximumSeats" Type="Edm.Int32" sap:label="Maximum Capacity" sap:quickinfo="Flight Reference Scenario: Plane Seats Max"/>
+                <Property Name="OccupiedSeats" Type="Edm.Int32" sap:label="Occupied Seats" sap:quickinfo="Flight Reference Scenario: Plane Seats Occupied"/>
+                <NavigationProperty Name="to_Airline" Relationship="cds_zfe_booking_analytics_000010.assoc_F57E2C3A10D68B6410BA7905E8DB14D9" FromRole="FromRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9" ToRole="ToRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                <NavigationProperty Name="to_Connection" Relationship="cds_zfe_booking_analytics_000010.assoc_28A80BB01D314B72C04D044C4E76C474" FromRole="FromRole_assoc_28A80BB01D314B72C04D044C4E76C474" ToRole="ToRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                <NavigationProperty Name="to_Currency" Relationship="cds_zfe_booking_analytics_000010.assoc_B10E4AB7137D86654192BDF828D2234F" FromRole="FromRole_assoc_B10E4AB7137D86654192BDF828D2234F" ToRole="ToRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+            </EntityType>
+            <EntityType Name="TravelType" sap:label="Travel view entity for booking analysis" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TravelUUID"/>
+                </Key>
+                <Property Name="TravelUUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                <Property Name="TravelID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Travel ID" sap:quickinfo="Flight Reference Scenario: Travel ID"/>
+                <Property Name="AgencyID" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Agency ID" sap:quickinfo="Flight Reference Scenario: Agency ID"/>
+                <Property Name="CustomerID" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Customer ID" sap:quickinfo="Flight Reference Scenario: Customer ID"/>
+                <Property Name="BeginDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Starting Date" sap:quickinfo="Flight Reference Scenario: Start Date"/>
+                <Property Name="EndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="End Date" sap:quickinfo="Flight Reference Scenario: End Date"/>
+                <Property Name="BookingFee" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:variable-scale="true" sap:label="Booking Fee" sap:quickinfo="Flight Reference Scenario: Booking Fee"/>
+                <Property Name="TotalPrice" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:variable-scale="true" sap:label="Total Price" sap:quickinfo="Flight Reference Scenario: Total Price"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:quickinfo="Flight Reference Scenario: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="1024" sap:label="Description" sap:quickinfo="Flight Reference Scenario: Description"/>
+                <Property Name="OverallStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Overall Status" sap:quickinfo="Flight Reference Scenario: Travel Status"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp" sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="LAST_CHANGED_AT" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp" sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp" sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"/>
+                <NavigationProperty Name="to_Agency" Relationship="cds_zfe_booking_analytics_000010.assoc_840EE5D27340303F3D014EFB708445D4" FromRole="FromRole_assoc_840EE5D27340303F3D014EFB708445D4" ToRole="ToRole_assoc_840EE5D27340303F3D014EFB708445D4"/>
+                <NavigationProperty Name="to_Customer" Relationship="cds_zfe_booking_analytics_000010.assoc_83A36B55BA535DD7C4776FC7F0E77DF4" FromRole="FromRole_assoc_83A36B55BA535DD7C4776FC7F0E77DF4" ToRole="ToRole_assoc_83A36B55BA535DD7C4776FC7F0E77DF4"/>
+            </EntityType>
+            <Association Name="assoc_3ADA06257639544A740B5A3B04FDE16D" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.BookingType" Multiplicity="1" Role="FromRole_assoc_3ADA06257639544A740B5A3B04FDE16D"/>
+                <End Type="cds_zfe_booking_analytics_000010.ConnectionType" Multiplicity="1" Role="ToRole_assoc_3ADA06257639544A740B5A3B04FDE16D"/>
+            </Association>
+            <Association Name="assoc_0284693A34B9BF4BBD1A53349FA4FFD5" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.BookingType" Multiplicity="1" Role="FromRole_assoc_0284693A34B9BF4BBD1A53349FA4FFD5"/>
+                <End Type="cds_zfe_booking_analytics_000010.CustomerType" Multiplicity="0..1" Role="ToRole_assoc_0284693A34B9BF4BBD1A53349FA4FFD5"/>
+            </Association>
+            <Association Name="assoc_163F44BB46B316F4915A6EE189A2E8B1" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.BookingType" Multiplicity="1" Role="FromRole_assoc_163F44BB46B316F4915A6EE189A2E8B1"/>
+                <End Type="cds_zfe_booking_analytics_000010.TravelType" Multiplicity="0..1" Role="ToRole_assoc_163F44BB46B316F4915A6EE189A2E8B1"/>
+            </Association>
+            <Association Name="assoc_239F22C172B928EC097EA741CB4037D6" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.BookingType" Multiplicity="1" Role="FromRole_assoc_239F22C172B928EC097EA741CB4037D6"/>
+                <End Type="cds_zfe_booking_analytics_000010.AirlineType" Multiplicity="1" Role="ToRole_assoc_239F22C172B928EC097EA741CB4037D6"/>
+            </Association>
+            <Association Name="assoc_840EE5D27340303F3D014EFB708445D4" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.TravelType" Multiplicity="1" Role="FromRole_assoc_840EE5D27340303F3D014EFB708445D4"/>
+                <End Type="cds_zfe_booking_analytics_000010.AgencyType" Multiplicity="0..1" Role="ToRole_assoc_840EE5D27340303F3D014EFB708445D4"/>
+            </Association>
+            <Association Name="assoc_83A36B55BA535DD7C4776FC7F0E77DF4" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.TravelType" Multiplicity="1" Role="FromRole_assoc_83A36B55BA535DD7C4776FC7F0E77DF4"/>
+                <End Type="cds_zfe_booking_analytics_000010.CustomerType" Multiplicity="0..1" Role="ToRole_assoc_83A36B55BA535DD7C4776FC7F0E77DF4"/>
+            </Association>
+            <Association Name="assoc_80E30C9264442D302002C2D9BAA5C7A6" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.AirlineType" Multiplicity="1" Role="FromRole_assoc_80E30C9264442D302002C2D9BAA5C7A6"/>
+                <End Type="cds_zfe_booking_analytics_000010.CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_80E30C9264442D302002C2D9BAA5C7A6"/>
+            </Association>
+            <Association Name="assoc_F57E2C3A10D68B6410BA7905E8DB14D9" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.FlightType" Multiplicity="1" Role="FromRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                <End Type="cds_zfe_booking_analytics_000010.AirlineType" Multiplicity="0..1" Role="ToRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+            </Association>
+            <Association Name="assoc_28A80BB01D314B72C04D044C4E76C474" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.FlightType" Multiplicity="1" Role="FromRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                <End Type="cds_zfe_booking_analytics_000010.ConnectionType" Multiplicity="0..1" Role="ToRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+            </Association>
+            <Association Name="assoc_B10E4AB7137D86654192BDF828D2234F" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.FlightType" Multiplicity="1" Role="FromRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+                <End Type="cds_zfe_booking_analytics_000010.CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+            </Association>
+            <Association Name="assoc_9FB13578F60A348F1EFBC0FB3C174674" sap:content-version="1">
+                <End Type="cds_zfe_booking_analytics_000010.ConnectionType" Multiplicity="1" Role="FromRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+                <End Type="cds_zfe_booking_analytics_000010.AirlineType" Multiplicity="1" Role="ToRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+            </Association>
+            <EntityContainer Name="cds_zfe_booking_analytics_000010_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Agency" EntityType="cds_zfe_booking_analytics_000010.AgencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="xDMOxI_Airport" EntityType="cds_zfe_booking_analytics_000010.xDMOxI_AirportType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Customer" EntityType="cds_zfe_booking_analytics_000010.CustomerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_Country" EntityType="cds_zfe_booking_analytics_000010.I_CountryType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Currency" EntityType="cds_zfe_booking_analytics_000010.CurrencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Booking" EntityType="cds_zfe_booking_analytics_000010.BookingType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Airline" EntityType="cds_zfe_booking_analytics_000010.AirlineType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Connection" EntityType="cds_zfe_booking_analytics_000010.ConnectionType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Flight" EntityType="cds_zfe_booking_analytics_000010.FlightType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Travel" EntityType="cds_zfe_booking_analytics_000010.TravelType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_3ADA06257639544A740B5A3B04FDE16D" Association="cds_zfe_booking_analytics_000010.assoc_3ADA06257639544A740B5A3B04FDE16D" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Booking" Role="FromRole_assoc_3ADA06257639544A740B5A3B04FDE16D"/>
+                    <End EntitySet="Connection" Role="ToRole_assoc_3ADA06257639544A740B5A3B04FDE16D"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_28A80BB01D314B72C04D044C4E76C474" Association="cds_zfe_booking_analytics_000010.assoc_28A80BB01D314B72C04D044C4E76C474" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Flight" Role="FromRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                    <End EntitySet="Connection" Role="ToRole_assoc_28A80BB01D314B72C04D044C4E76C474"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_840EE5D27340303F3D014EFB708445D4" Association="cds_zfe_booking_analytics_000010.assoc_840EE5D27340303F3D014EFB708445D4" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Travel" Role="FromRole_assoc_840EE5D27340303F3D014EFB708445D4"/>
+                    <End EntitySet="Agency" Role="ToRole_assoc_840EE5D27340303F3D014EFB708445D4"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_B10E4AB7137D86654192BDF828D2234F" Association="cds_zfe_booking_analytics_000010.assoc_B10E4AB7137D86654192BDF828D2234F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Flight" Role="FromRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+                    <End EntitySet="Currency" Role="ToRole_assoc_B10E4AB7137D86654192BDF828D2234F"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F57E2C3A10D68B6410BA7905E8DB14D9" Association="cds_zfe_booking_analytics_000010.assoc_F57E2C3A10D68B6410BA7905E8DB14D9" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Flight" Role="FromRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                    <End EntitySet="Airline" Role="ToRole_assoc_F57E2C3A10D68B6410BA7905E8DB14D9"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_239F22C172B928EC097EA741CB4037D6" Association="cds_zfe_booking_analytics_000010.assoc_239F22C172B928EC097EA741CB4037D6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Booking" Role="FromRole_assoc_239F22C172B928EC097EA741CB4037D6"/>
+                    <End EntitySet="Airline" Role="ToRole_assoc_239F22C172B928EC097EA741CB4037D6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_80E30C9264442D302002C2D9BAA5C7A6" Association="cds_zfe_booking_analytics_000010.assoc_80E30C9264442D302002C2D9BAA5C7A6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Airline" Role="FromRole_assoc_80E30C9264442D302002C2D9BAA5C7A6"/>
+                    <End EntitySet="Currency" Role="ToRole_assoc_80E30C9264442D302002C2D9BAA5C7A6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_9FB13578F60A348F1EFBC0FB3C174674" Association="cds_zfe_booking_analytics_000010.assoc_9FB13578F60A348F1EFBC0FB3C174674" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Connection" Role="FromRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+                    <End EntitySet="Airline" Role="ToRole_assoc_9FB13578F60A348F1EFBC0FB3C174674"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_83A36B55BA535DD7C4776FC7F0E77DF4" Association="cds_zfe_booking_analytics_000010.assoc_83A36B55BA535DD7C4776FC7F0E77DF4" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Travel" Role="FromRole_assoc_83A36B55BA535DD7C4776FC7F0E77DF4"/>
+                    <End EntitySet="Customer" Role="ToRole_assoc_83A36B55BA535DD7C4776FC7F0E77DF4"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_0284693A34B9BF4BBD1A53349FA4FFD5" Association="cds_zfe_booking_analytics_000010.assoc_0284693A34B9BF4BBD1A53349FA4FFD5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Booking" Role="FromRole_assoc_0284693A34B9BF4BBD1A53349FA4FFD5"/>
+                    <End EntitySet="Customer" Role="ToRole_assoc_0284693A34B9BF4BBD1A53349FA4FFD5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_163F44BB46B316F4915A6EE189A2E8B1" Association="cds_zfe_booking_analytics_000010.assoc_163F44BB46B316F4915A6EE189A2E8B1" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Booking" Role="FromRole_assoc_163F44BB46B316F4915A6EE189A2E8B1"/>
+                    <End EntitySet="Travel" Role="ToRole_assoc_163F44BB46B316F4915A6EE189A2E8B1"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="cds_zfe_booking_analytics_000010.AgencyType/CountryCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="I_Country"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.xDMOxI_AirportType/CountryCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="I_Country"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.CustomerType/CountryCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="I_Country"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CountryCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeLetterISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryThreeDigitISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryISOCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.ConnectionType/AirlineID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Airline ID"/>
+                        <PropertyValue Property="CollectionPath" String="Airline"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AirlineID"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlinePicURL"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.ConnectionType/DepartureAirport" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Departure Airport"/>
+                        <PropertyValue Property="CollectionPath" String="xDMOxI_Airport"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DepartureAirport"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirportID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.ConnectionType/DestinationAirport" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Destination Airport"/>
+                        <PropertyValue Property="CollectionPath" String="xDMOxI_Airport"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DestinationAirport"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirportID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="City"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.FlightType/AirlineID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Airline ID"/>
+                        <PropertyValue Property="CollectionPath" String="Airline"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AirlineID"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlinePicURL"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.FlightType/ConnectionID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Flight Number"/>
+                        <PropertyValue Property="CollectionPath" String="Connection"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AirlineID"/>
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ConnectionID"/>
+                                    <PropertyValue Property="ValueListProperty" String="ConnectionID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AirlineID_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DepartureAirport"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DestinationAirport"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DepartureTime"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ArrivalTime"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Distance"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistanceUnit"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.cds_zfe_booking_analytics_000010_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.cds_zfe_booking_analytics_000010_Entities/Agency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="EMailAddress"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="WebAddress"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>EMailAddress</PropertyPath>
+                                <PropertyPath>WebAddress</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.cds_zfe_booking_analytics_000010_Entities/Booking" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                                <PropertyPath>FlightPrice</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.cds_zfe_booking_analytics_000010_Entities/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="EMailAddress"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>EMailAddress</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.CurrencyType/Currency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.UnitSpecificScale" Path="Decimals"/>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000010.BookingType/FlightPrice" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_zfe_booking_analytics_000010.cds_zfe_booking_analytics_000010_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../iwbep/common;v=0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../iwbep/common;v=0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/sap/ZUI_FE_BOOKING_000010_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://aa626a85-2ade-4727-9a6b-ae2f0f5cb38b.abap.us10.hana.ondemand.com/sap/opu/odata/sap/ZUI_FE_BOOKING_000010_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
